@@ -45,6 +45,34 @@
   </entry>
   
   <entry>
+    <title>一台电脑，两个及多个git账号配置</title>
+    <link href="http://yoursite.com/2018/11/13/%E4%B8%80%E5%8F%B0%E7%94%B5%E8%84%91%E5%A4%9A%E4%B8%AAgithub%E5%B8%90%E5%8F%B7/"/>
+    <id>http://yoursite.com/2018/11/13/一台电脑多个github帐号/</id>
+    <published>2018-11-13T08:25:47.000Z</published>
+    <updated>2018-11-14T10:30:40.311Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><blockquote><p>win系统</p></blockquote></blockquote><ol><li>生成两[三]个ssh公钥私钥<pre><code>ssh-keyten -t rsa -C 32355788@qq.com</code></pre></li></ol><p>假定其中一个是id_rsa, 另一个时id_rsa_two</p><ol start="2"><li><p>复制公钥<br>把生成好的ssh的公钥相对应复制到github[/gitlab]的settings中的SSH and GPG keys</p></li><li><p>配置config文件<br>如果在~/.ssh/下没有config文件，可以touch config</p></li></ol><pre><code>   ##可缺省，此时ssh -T git@github.com,默认就是和拥有id_rsa.pub的github账号对接。   #github server one   Host github              #域名地址的别名   Hostname github.com      #这个是真实的域名地址   User git                     #配置使用用户名   IdentityFile ~/.ssh/id_rsa   #这里是id_rsa的地址​   #github server two   Host github_two   Hostname github.com   User git   IdentityFile ~/.ssh/id_rsa_two​   ##如果有第三个或者更多   #gitab server   Host gitlab   Hostname gitlab.com   User git   IdentityFile ~/.ssh/id_rsa_gitlab​</code></pre><ol start="4"><li><p>测试</p><pre><code>ssh -T git@gihub#如果配置正确会提示Hi your name one in github ! You&#39;ve successfully authenticated, but GitHub does not provide shell access.​ssh -T git@gihub_two#如果配置正确会提示Hi your name two in github ! You&#39;ve successfully authenticated, but GitHub does not provide shell access.​ssh -T git@gitlab#如果配置正确会提示Welcome to GitLab, Your GitLab nickname!　</code></pre></li><li><p>Clone 项目到本地<br>在工作目录下，首先先git init，然后才能使用git命令clone项目到本地  </p></li></ol><pre><code>#之前的方式:单个账号git clone git@github.com:firstAccount/xxx.git #缺省config配置时git clone git@github:firstAccount/xxx.git #config配置后，等价于第一条语句#现在要改为，git clone git@域名别称：用户名/项目名git clone git@github_two:secondAccount/xxx.git //就是使用域名地址的别名来区分git clone git@gitlab:gitlabAccount/xxx.git</code></pre><ol start="6"><li>配置本地git用户名和邮箱(非必须项)<br>如果首次push repo没有配置git的账号和邮箱，可以如下配置  </li></ol><pre><code>   #全局配置   git config --global user.name &quot;Your name&quot;   git config --global user.email your_email@gmail.com​   ##非必须项   #局部配置，如果没有局部配置，默认用全局配置否则优先使用局部配置   cd ~/workspace/github_two/   git init   git config  user.name &quot;Your name&quot;   git config  user.email your_email@gmail.com​</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;win系统&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;生成两[三]个ssh公钥私钥&lt;pre&gt;&lt;code&gt;ssh-keyten -t rsa -C 32355788@qq.com
+&lt;/
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Hello World</title>
     <link href="http://yoursite.com/2015/05/02/hello-world/"/>
     <id>http://yoursite.com/2015/05/02/hello-world/</id>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-11-14T11:40:58.755Z</updated>
+  <updated>2018-11-14T11:56:58.294Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,43 +17,20 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>test</title>
-    <link href="http://yoursite.com/2018/11/14/test/"/>
-    <id>http://yoursite.com/2018/11/14/test/</id>
-    <published>2018-11-14T11:39:17.000Z</published>
-    <updated>2018-11-14T11:40:58.755Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="test/test.img" alt="test img"></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;img src=&quot;test/test.img&quot; alt=&quot;test img&quot;&gt;&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>一台电脑，两个及多个git账号配置</title>
     <link href="http://yoursite.com/2018/11/13/%E4%B8%80%E5%8F%B0%E7%94%B5%E8%84%91%E5%A4%9A%E4%B8%AAgithub%E5%B8%90%E5%8F%B7/"/>
     <id>http://yoursite.com/2018/11/13/一台电脑多个github帐号/</id>
     <published>2018-11-13T08:25:47.000Z</published>
-    <updated>2018-11-14T11:38:02.700Z</updated>
+    <updated>2018-11-14T11:56:58.294Z</updated>
     
-    <content type="html"><![CDATA[<p><img src="test.jpg" alt="test img"></p><ol><li>生成两[三]个ssh公钥私钥<br>假定其中一个是id_rsa, 另一个时id_rsa_two<pre class=" language-bash"><code class="language-bash">ssh-keyten -t rsa -C 32355788@qq.com</code></pre></li></ol><ol start="2"><li><p>复制公钥<br>把生成好的ssh的公钥相对应复制到github[/gitlab]的settings中的SSH and GPG keys</p></li><li><p>配置config文件<br>如果在~/.ssh/下没有config文件，可以touch config</p></li></ol><pre class=" language-bash"><code class="language-bash">   <span class="token comment" spellcheck="true">##可缺省，此时ssh -T git@github.com,默认就是和拥有id_rsa.pub的github账号对接。</span>   <span class="token comment" spellcheck="true">#github server one</span>   Host github              <span class="token comment" spellcheck="true">#域名地址的别名</span>   Hostname github.com      <span class="token comment" spellcheck="true">#这个是真实的域名地址</span>   User <span class="token function">git</span>                     <span class="token comment" spellcheck="true">#配置使用用户名</span>   IdentityFile ~/.ssh/id_rsa   <span class="token comment" spellcheck="true">#这里是id_rsa的地址</span>​   <span class="token comment" spellcheck="true">#github server two</span>   Host github_two   Hostname github.com   User <span class="token function">git</span>   IdentityFile ~/.ssh/id_rsa_two​   <span class="token comment" spellcheck="true">##如果有第三个或者更多</span>   <span class="token comment" spellcheck="true">#gitab server</span>   Host gitlab   Hostname gitlab.com   User <span class="token function">git</span>   IdentityFile ~/.ssh/id_rsa_gitlab​</code></pre><ol start="4"><li>测试</li></ol><pre class=" language-bash"><code class="language-bash"><span class="token function">ssh</span> -T git@gihub   <span class="token comment" spellcheck="true">#如果配置正确会提示</span>   Hi your name one <span class="token keyword">in</span> github <span class="token operator">!</span> You<span class="token string">'ve successfully authenticated, but GitHub does not provide shell access.​   ssh -T git@gihub_two   #如果配置正确会提示   Hi your name two in github ! You'</span>ve successfully authenticated, but GitHub does not provide shell access.​   <span class="token function">ssh</span> -T git@gitlab   <span class="token comment" spellcheck="true">#如果配置正确会提示</span>   Welcome to GitLab, Your GitLab nickname<span class="token operator">!</span>　</code></pre><ol start="5"><li>Clone 项目到本地<br>在工作目录下，首先先git init，然后才能使用git命令clone项目到本地  </li></ol><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">#之前的方式:单个账号</span><span class="token function">git</span> clone git@github.com:firstAccount/xxx.git <span class="token comment" spellcheck="true">#缺省config配置时</span><span class="token function">git</span> clone git@github:firstAccount/xxx.git <span class="token comment" spellcheck="true">#config配置后，等价于第一条语句</span><span class="token comment" spellcheck="true">#现在要改为，git clone git@域名别称：用户名/项目名</span><span class="token function">git</span> clone git@github_two:secondAccount/xxx.git //就是使用域名地址的别名来区分<span class="token function">git</span> clone git@gitlab:gitlabAccount/xxx.git</code></pre><ol start="6"><li>配置本地git用户名和邮箱(非必须项)<br>如果首次push repo没有配置git的账号和邮箱，可以如下配置  </li></ol><pre class=" language-bash"><code class="language-bash">   <span class="token comment" spellcheck="true">#全局配置</span>   <span class="token function">git</span> config --global user.name <span class="token string">"Your name"</span>   <span class="token function">git</span> config --global user.email your_email@gmail.com​   <span class="token comment" spellcheck="true">##非必须项</span>   <span class="token comment" spellcheck="true">#局部配置，如果没有局部配置，默认用全局配置否则优先使用局部配置</span>   <span class="token function">cd</span> ~/workspace/github_two/   <span class="token function">git</span> init   <span class="token function">git</span> config  user.name <span class="token string">"Your name"</span>   <span class="token function">git</span> config  user.email your_email@gmail.com​</code></pre>]]></content>
+    <content type="html"><![CDATA[<ol><li>生成两[三]个ssh公钥私钥<br>假定其中一个是id_rsa, 另一个时id_rsa_two<pre class=" language-bash"><code class="language-bash">ssh-keyten -t rsa -C 32355788@qq.com</code></pre></li></ol><ol start="2"><li><p>复制公钥<br>把生成好的ssh的公钥相对应复制到github[/gitlab]的settings中的SSH and GPG keys</p></li><li><p>配置config文件<br>如果在.ssh/下没有config文件，可以touch config<br><img src="dir.jpg" alt="目录"></p></li></ol><pre class=" language-bash"><code class="language-bash">   <span class="token comment" spellcheck="true">##可缺省，此时ssh -T git@github.com,默认就是和拥有id_rsa.pub的github账号对接。</span>   <span class="token comment" spellcheck="true">#github server one</span>   Host github              <span class="token comment" spellcheck="true">#域名地址的别名</span>   Hostname github.com      <span class="token comment" spellcheck="true">#这个是真实的域名地址</span>   User <span class="token function">git</span>                     <span class="token comment" spellcheck="true">#配置使用用户名</span>   IdentityFile ~/.ssh/id_rsa   <span class="token comment" spellcheck="true">#这里是id_rsa的地址</span>​   <span class="token comment" spellcheck="true">#github server two</span>   Host github_two   Hostname github.com   User <span class="token function">git</span>   IdentityFile ~/.ssh/id_rsa_two​   <span class="token comment" spellcheck="true">##如果有第三个或者更多</span>   <span class="token comment" spellcheck="true">#gitab server</span>   Host gitlab   Hostname gitlab.com   User <span class="token function">git</span>   IdentityFile ~/.ssh/id_rsa_gitlab​</code></pre><ol start="4"><li>测试</li></ol><pre class=" language-bash"><code class="language-bash"><span class="token function">ssh</span> -T git@gihub   <span class="token comment" spellcheck="true">#如果配置正确会提示</span>   Hi your name one <span class="token keyword">in</span> github <span class="token operator">!</span> You<span class="token string">'ve successfully authenticated, but GitHub does not provide shell access.​   ssh -T git@gihub_two   #如果配置正确会提示   Hi your name two in github ! You'</span>ve successfully authenticated, but GitHub does not provide shell access.​   <span class="token function">ssh</span> -T git@gitlab   <span class="token comment" spellcheck="true">#如果配置正确会提示</span>   Welcome to GitLab, Your GitLab nickname<span class="token operator">!</span>　</code></pre><ol start="5"><li>Clone 项目到本地<br>在工作目录下，首先先git init，然后才能使用git命令clone项目到本地  </li></ol><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">#之前的方式:单个账号</span><span class="token function">git</span> clone git@github.com:firstAccount/xxx.git <span class="token comment" spellcheck="true">#缺省config配置时</span><span class="token function">git</span> clone git@github:firstAccount/xxx.git <span class="token comment" spellcheck="true">#config配置后，等价于第一条语句</span><span class="token comment" spellcheck="true">#现在要改为，git clone git@域名别称：用户名/项目名</span><span class="token function">git</span> clone git@github_two:secondAccount/xxx.git //就是使用域名地址的别名来区分<span class="token function">git</span> clone git@gitlab:gitlabAccount/xxx.git</code></pre><ol start="6"><li>配置本地git用户名和邮箱(非必须项)<br>如果首次push repo没有配置git的账号和邮箱，可以如下配置  </li></ol><pre class=" language-bash"><code class="language-bash">   <span class="token comment" spellcheck="true">#全局配置</span>   <span class="token function">git</span> config --global user.name <span class="token string">"Your name"</span>   <span class="token function">git</span> config --global user.email your_email@gmail.com​   <span class="token comment" spellcheck="true">##非必须项</span>   <span class="token comment" spellcheck="true">#局部配置，如果没有局部配置，默认用全局配置否则优先使用局部配置</span>   <span class="token function">cd</span> ~/workspace/github_two/   <span class="token function">git</span> init   <span class="token function">git</span> config  user.name <span class="token string">"Your name"</span>   <span class="token function">git</span> config  user.email your_email@gmail.com​</code></pre>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;&lt;img src=&quot;test.jpg&quot; alt=&quot;test img&quot;&gt;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;生成两[三]个ssh公钥私钥&lt;br&gt;假定其中一个是id_rsa, 另一个时id_rsa_two&lt;pre class=&quot; language-bash&quot;&gt;&lt;code class=&quot;
+        &lt;ol&gt;
+&lt;li&gt;生成两[三]个ssh公钥私钥&lt;br&gt;假定其中一个是id_rsa, 另一个时id_rsa_two&lt;pre class=&quot; language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;ssh-keyten -t rsa -C 3235578
       
     
     </summary>

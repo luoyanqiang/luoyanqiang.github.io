@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-11-14T08:26:35.702Z</updated>
+  <updated>2018-11-14T11:40:58.755Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,27 +17,21 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Title-2</title>
-    <link href="http://yoursite.com/2018/11/14/Title-2/"/>
-    <id>http://yoursite.com/2018/11/14/Title-2/</id>
-    <published>2018-11-14T08:26:35.000Z</published>
-    <updated>2018-11-14T08:26:35.702Z</updated>
+    <title>test</title>
+    <link href="http://yoursite.com/2018/11/14/test/"/>
+    <id>http://yoursite.com/2018/11/14/test/</id>
+    <published>2018-11-14T11:39:17.000Z</published>
+    <updated>2018-11-14T11:40:58.755Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="test/test.img" alt="test img"></p>]]></content>
     
     <summary type="html">
     
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Title-1</title>
-    <link href="http://yoursite.com/2018/11/14/Title-1/"/>
-    <id>http://yoursite.com/2018/11/14/Title-1/</id>
-    <published>2018-11-14T08:26:26.000Z</published>
-    <updated>2018-11-14T08:26:26.596Z</updated>
-    
-    <summary type="html">
+      
+      
+        &lt;p&gt;&lt;img src=&quot;test/test.img&quot; alt=&quot;test img&quot;&gt;&lt;/p&gt;
+
+      
     
     </summary>
     
@@ -49,35 +43,34 @@
     <link href="http://yoursite.com/2018/11/13/%E4%B8%80%E5%8F%B0%E7%94%B5%E8%84%91%E5%A4%9A%E4%B8%AAgithub%E5%B8%90%E5%8F%B7/"/>
     <id>http://yoursite.com/2018/11/13/一台电脑多个github帐号/</id>
     <published>2018-11-13T08:25:47.000Z</published>
-    <updated>2018-11-14T10:30:40.311Z</updated>
+    <updated>2018-11-14T11:38:02.700Z</updated>
     
-    <content type="html"><![CDATA[<blockquote><blockquote><p>win系统</p></blockquote></blockquote><ol><li>生成两[三]个ssh公钥私钥<pre><code>ssh-keyten -t rsa -C 32355788@qq.com</code></pre></li></ol><p>假定其中一个是id_rsa, 另一个时id_rsa_two</p><ol start="2"><li><p>复制公钥<br>把生成好的ssh的公钥相对应复制到github[/gitlab]的settings中的SSH and GPG keys</p></li><li><p>配置config文件<br>如果在~/.ssh/下没有config文件，可以touch config</p></li></ol><pre><code>   ##可缺省，此时ssh -T git@github.com,默认就是和拥有id_rsa.pub的github账号对接。   #github server one   Host github              #域名地址的别名   Hostname github.com      #这个是真实的域名地址   User git                     #配置使用用户名   IdentityFile ~/.ssh/id_rsa   #这里是id_rsa的地址​   #github server two   Host github_two   Hostname github.com   User git   IdentityFile ~/.ssh/id_rsa_two​   ##如果有第三个或者更多   #gitab server   Host gitlab   Hostname gitlab.com   User git   IdentityFile ~/.ssh/id_rsa_gitlab​</code></pre><ol start="4"><li><p>测试</p><pre><code>ssh -T git@gihub#如果配置正确会提示Hi your name one in github ! You&#39;ve successfully authenticated, but GitHub does not provide shell access.​ssh -T git@gihub_two#如果配置正确会提示Hi your name two in github ! You&#39;ve successfully authenticated, but GitHub does not provide shell access.​ssh -T git@gitlab#如果配置正确会提示Welcome to GitLab, Your GitLab nickname!　</code></pre></li><li><p>Clone 项目到本地<br>在工作目录下，首先先git init，然后才能使用git命令clone项目到本地  </p></li></ol><pre><code>#之前的方式:单个账号git clone git@github.com:firstAccount/xxx.git #缺省config配置时git clone git@github:firstAccount/xxx.git #config配置后，等价于第一条语句#现在要改为，git clone git@域名别称：用户名/项目名git clone git@github_two:secondAccount/xxx.git //就是使用域名地址的别名来区分git clone git@gitlab:gitlabAccount/xxx.git</code></pre><ol start="6"><li>配置本地git用户名和邮箱(非必须项)<br>如果首次push repo没有配置git的账号和邮箱，可以如下配置  </li></ol><pre><code>   #全局配置   git config --global user.name &quot;Your name&quot;   git config --global user.email your_email@gmail.com​   ##非必须项   #局部配置，如果没有局部配置，默认用全局配置否则优先使用局部配置   cd ~/workspace/github_two/   git init   git config  user.name &quot;Your name&quot;   git config  user.email your_email@gmail.com​</code></pre>]]></content>
+    <content type="html"><![CDATA[<p><img src="test.jpg" alt="test img"></p><ol><li>生成两[三]个ssh公钥私钥<br>假定其中一个是id_rsa, 另一个时id_rsa_two<pre class=" language-bash"><code class="language-bash">ssh-keyten -t rsa -C 32355788@qq.com</code></pre></li></ol><ol start="2"><li><p>复制公钥<br>把生成好的ssh的公钥相对应复制到github[/gitlab]的settings中的SSH and GPG keys</p></li><li><p>配置config文件<br>如果在~/.ssh/下没有config文件，可以touch config</p></li></ol><pre class=" language-bash"><code class="language-bash">   <span class="token comment" spellcheck="true">##可缺省，此时ssh -T git@github.com,默认就是和拥有id_rsa.pub的github账号对接。</span>   <span class="token comment" spellcheck="true">#github server one</span>   Host github              <span class="token comment" spellcheck="true">#域名地址的别名</span>   Hostname github.com      <span class="token comment" spellcheck="true">#这个是真实的域名地址</span>   User <span class="token function">git</span>                     <span class="token comment" spellcheck="true">#配置使用用户名</span>   IdentityFile ~/.ssh/id_rsa   <span class="token comment" spellcheck="true">#这里是id_rsa的地址</span>​   <span class="token comment" spellcheck="true">#github server two</span>   Host github_two   Hostname github.com   User <span class="token function">git</span>   IdentityFile ~/.ssh/id_rsa_two​   <span class="token comment" spellcheck="true">##如果有第三个或者更多</span>   <span class="token comment" spellcheck="true">#gitab server</span>   Host gitlab   Hostname gitlab.com   User <span class="token function">git</span>   IdentityFile ~/.ssh/id_rsa_gitlab​</code></pre><ol start="4"><li>测试</li></ol><pre class=" language-bash"><code class="language-bash"><span class="token function">ssh</span> -T git@gihub   <span class="token comment" spellcheck="true">#如果配置正确会提示</span>   Hi your name one <span class="token keyword">in</span> github <span class="token operator">!</span> You<span class="token string">'ve successfully authenticated, but GitHub does not provide shell access.​   ssh -T git@gihub_two   #如果配置正确会提示   Hi your name two in github ! You'</span>ve successfully authenticated, but GitHub does not provide shell access.​   <span class="token function">ssh</span> -T git@gitlab   <span class="token comment" spellcheck="true">#如果配置正确会提示</span>   Welcome to GitLab, Your GitLab nickname<span class="token operator">!</span>　</code></pre><ol start="5"><li>Clone 项目到本地<br>在工作目录下，首先先git init，然后才能使用git命令clone项目到本地  </li></ol><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">#之前的方式:单个账号</span><span class="token function">git</span> clone git@github.com:firstAccount/xxx.git <span class="token comment" spellcheck="true">#缺省config配置时</span><span class="token function">git</span> clone git@github:firstAccount/xxx.git <span class="token comment" spellcheck="true">#config配置后，等价于第一条语句</span><span class="token comment" spellcheck="true">#现在要改为，git clone git@域名别称：用户名/项目名</span><span class="token function">git</span> clone git@github_two:secondAccount/xxx.git //就是使用域名地址的别名来区分<span class="token function">git</span> clone git@gitlab:gitlabAccount/xxx.git</code></pre><ol start="6"><li>配置本地git用户名和邮箱(非必须项)<br>如果首次push repo没有配置git的账号和邮箱，可以如下配置  </li></ol><pre class=" language-bash"><code class="language-bash">   <span class="token comment" spellcheck="true">#全局配置</span>   <span class="token function">git</span> config --global user.name <span class="token string">"Your name"</span>   <span class="token function">git</span> config --global user.email your_email@gmail.com​   <span class="token comment" spellcheck="true">##非必须项</span>   <span class="token comment" spellcheck="true">#局部配置，如果没有局部配置，默认用全局配置否则优先使用局部配置</span>   <span class="token function">cd</span> ~/workspace/github_two/   <span class="token function">git</span> init   <span class="token function">git</span> config  user.name <span class="token string">"Your name"</span>   <span class="token function">git</span> config  user.email your_email@gmail.com​</code></pre>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;win系统&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
+        &lt;p&gt;&lt;img src=&quot;test.jpg&quot; alt=&quot;test img&quot;&gt;&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;生成两[三]个ssh公钥私钥&lt;pre&gt;&lt;code&gt;ssh-keyten -t rsa -C 32355788@qq.com
-&lt;/
+&lt;li&gt;生成两[三]个ssh公钥私钥&lt;br&gt;假定其中一个是id_rsa, 另一个时id_rsa_two&lt;pre class=&quot; language-bash&quot;&gt;&lt;code class=&quot;
       
     
     </summary>
     
     
+      <category term="工具" scheme="http://yoursite.com/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="git" scheme="http://yoursite.com/tags/git/"/>
+    
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="http://yoursite.com/2015/05/02/hello-world/"/>
-    <id>http://yoursite.com/2015/05/02/hello-world/</id>
-    <published>2015-05-02T13:32:43.000Z</published>
-    <updated>2018-11-14T08:24:51.206Z</updated>
+    <link href="http://yoursite.com/2014/07/02/hello-world/"/>
+    <id>http://yoursite.com/2014/07/02/hello-world/</id>
+    <published>2014-07-02T13:32:43.000Z</published>
+    <updated>2018-11-14T11:26:59.179Z</updated>
     
     <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class=" language-bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span></code></pre><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class=" language-bash"><code class="language-bash">$ hexo server</code></pre><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class=" language-bash"><code class="language-bash">$ hexo generate</code></pre><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class=" language-bash"><code class="language-bash">$ hexo deploy</code></pre><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
     

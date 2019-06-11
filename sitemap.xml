@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2016/11/02/docker%20compose/</loc>
+    
+    <lastmod>2019-06-11T22:32:33.633Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/author/index.html</loc>
     
     <lastmod>2018-11-14T11:59:13.914Z</lastmod>

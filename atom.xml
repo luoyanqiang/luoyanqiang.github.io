@@ -43,6 +43,31 @@
   </entry>
   
   <entry>
+    <title>docker compose</title>
+    <link href="http://yoursite.com/2016/11/02/docker%20compose/"/>
+    <id>http://yoursite.com/2016/11/02/docker compose/</id>
+    <published>2016-11-02T13:32:43.000Z</published>
+    <updated>2019-06-11T22:32:33.633Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="docker-compose"><a href="#docker-compose" class="headerlink" title="docker compose"></a>docker compose</h1><h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><p>sudo curl -L “<a href="https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$" target="_blank" rel="noopener">https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$</a>(uname -s)-$(uname -m)” -o /usr/local/bin/docker-compose</p><p>sudo chmod +x /usr/local/bin/docker-compose</p><h2 id="docker-compose-yml"><a href="#docker-compose-yml" class="headerlink" title="docker-compose.yml"></a>docker-compose.yml</h2><pre><code>version: &#39;3&#39;services:  web:    build: .    ports:     - &quot;5000:5000&quot;    volumes:     - .:/code    depends_on:      - redis  redis:    image: &quot;redis:alpine&quot;</code></pre><p>这个demo定义了两个服务，web 和 redis.<br>web使用当前目录下由Dockerfile创建的镜像, volumes挂载了当前目录到容器的code目录.<br>redis服务使用docker中央仓库的公共redis镜像</p><h3 id="Spring-Cloud-Demo"><a href="#Spring-Cloud-Demo" class="headerlink" title="Spring Cloud Demo"></a>Spring Cloud Demo</h3><pre><code>version: &#39;3&#39;services:  hystrix:    image: kbastani/hystrix-dashboard    ports:     - &quot;7979:7979&quot;    links:     - gateway     - discovery  discovery:    image: kbastani/discovery-microservice    ports:     - &quot;8761:8761&quot;  configserver:    image: kbastani/config-microservice    ports:     - &quot;8888:8888&quot;    links:     - discovery  gateway:    image: kbastani/api-gateway-microservice    ports:     - &quot;10000:10000&quot;    links:     - discovery     - configserver     - user     - movie     - recommendation  user:    image: kbastani/users-microservice    container_name: user-registration    ports:      - &quot;9000:8080&quot;    links:     - discovery     - configserver    environment:        server.port: 8080        eureka.client.enabled: &#39;true&#39;        eureka.host: eureka-server        eureka.instance.preferIpAddress: &#39;true&#39;        eureka.instance.hostname: &#39;discovery&#39;        eureka.client.service-url:defaultZone: &#39;http://discovery:9000/eureka&#39;  movie:    image: kbastani/movie-microservice    links:     - discovery     - configserver  recommendation:    image: kbastani/recommendation-microservice    links:     - discovery     - configserver  moviesui:    image: kbastani/movies-ui    ports:       - &quot;9006:9006&quot;    links:     - discovery     - configserver</code></pre><h2 id="Command"><a href="#Command" class="headerlink" title="Command"></a>Command</h2><ol><li>docker-compose up -d</li><li>docker-compose ps</li><li>docker-compose down</li><li>docker-compose help ps</li><li>docker-compose logs</li><li>docker-compose kill serviceName</li><li>docker-compose start serviceName</li><li>docker-compose stop serviceName</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;docker-compose&quot;&gt;&lt;a href=&quot;#docker-compose&quot; class=&quot;headerlink&quot; title=&quot;docker compose&quot;&gt;&lt;/a&gt;docker compose&lt;/h1&gt;&lt;h2 id=&quot;Install&quot;&gt;&lt;a href=
+      
+    
+    </summary>
+    
+    
+      <category term="架构" scheme="http://yoursite.com/tags/%E6%9E%B6%E6%9E%84/"/>
+    
+      <category term="docker" scheme="http://yoursite.com/tags/docker/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Hello World</title>
     <link href="http://yoursite.com/2014/07/02/hello-world/"/>
     <id>http://yoursite.com/2014/07/02/hello-world/</id>

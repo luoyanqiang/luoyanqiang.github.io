@@ -1,0 +1,52 @@
+<!DOCTYPE html><html lang="en-us"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><title>搭建私有docker仓库 | Developer</title><meta name="description" content="搭建私有docker仓库"><meta name="generator" content="Developer"><meta name="author" content="Luo"><meta name="keywords" content="Developer"><meta name="HandheldFriendly" content="True"><meta name="MobileOptimized" content="320"><meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=0"><link rel="stylesheet" type="text/css" href="/styles/screen.css"><link rel="apple-touch-icon" sizes="57x57" href="/images/apple-touch-icon-57x57.png"><link rel="apple-touch-icon" sizes="60x60" href="/images/apple-touch-icon-60x60.png"><link rel="apple-touch-icon" sizes="72x72" href="/images/apple-touch-icon-72x72.png"><link rel="apple-touch-icon" sizes="76x76" href="/images/apple-touch-icon-76x76.png"><link rel="apple-touch-icon" sizes="114x114" href="/images/apple-touch-icon-114x114.png"><link rel="apple-touch-icon" sizes="120x120" href="/images/apple-touch-icon-120x120.png"><link rel="apple-touch-icon" sizes="144x144" href="/images/apple-touch-icon-144x144.png"><link rel="apple-touch-icon" sizes="152x152" href="/images/apple-touch-icon-152x152.png"><link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-180x180.png"><link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png"><link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png"><link rel="icon" type="image/png" sizes="96x96" href="/images/favicon-96x96.png"><link rel="icon" type="image/png" sizes="128x128" href="/images/favicon-128.png"><link rel="icon" type="image/png" sizes="196x196" href="/images/favicon-196x196.png"><meta name="msapplication-TileColor" content="#FFFFFF"><meta name="msapplication-TileImage" content="mstile-144x144.png"><meta name="msapplication-square70x70logo" content="mstile-70x70.png"><meta name="msapplication-square150x150logo" content="mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="mstile-310x150.png"><meta name="msapplication-square310x310logo" content="mstile-310x310.png"><link rel="stylesheet" href="/css/prism-dark.css" type="text/css"></head><body itemscope itemtype="https://schema.org/WebPage"><header itemscope itemtype="https://schema.org/WPHeader"><div class="logo"></div><h1><a href="/" alt="Developer" title="Developer" itemprop="headline">Developer</a></h1><p itemprop="description"></p><nav itemscope itemtype="https://schema.org/SiteNavigationElement"><ul><li itemprop="name"><a href="/ " alt="home" title="home" itemprop="url">home</a></li><li itemprop="name"><a href="/articles" alt="articles" title="articles" itemprop="url">articles</a></li><li itemprop="name"><a href="/author" alt="author" title="author" itemprop="url">author</a></li></ul></nav><div class="space"></div></header><main itemscope itemtype="https://schema.org/Blog"><article class="full"><h1 itemprop="headline" class="post-heading">搭建私有docker仓库</h1><span class="page-tag-anchor"><a href="/tags/java" itemprop="url">#java
+&nbsp;&nbsp;</a></span><span class="post-meta"></span><br><br><h1 id="搭建私有docker仓库"><a href="#搭建私有docker仓库" class="headerlink" title="搭建私有docker仓库"></a>搭建私有docker仓库</h1><h2 id="拉取并运行仓库"><a href="#拉取并运行仓库" class="headerlink" title="拉取并运行仓库"></a>拉取并运行仓库</h2><ol>
+<li><p>首先要安装docker, registry其实是docker中的一个镜像</p>
+</li>
+<li><p><code>docker run -d -p 5000:5000 --restart=always --name registry registry:2</code></p>
+</li>
+</ol>
+<h2 id="测试仓库"><a href="#测试仓库" class="headerlink" title="测试仓库"></a>测试仓库</h2><ol>
+<li><p><code>docker pull php</code></p>
+</li>
+<li><p><code>docker tag php localhost:5000/php</code></p>
+</li>
+<li><p><code>docker push localhost:5000/php</code></p>
+</li>
+<li><p><code>docker image remove php</code></p>
+</li>
+<li><p><code>docker image remove localhost:5000/php</code></p>
+</li>
+<li><p><code>docker pull localhost:5000/php</code></p>
+</li>
+</ol>
+<h2 id="Run-an-externally-accessible-registry"><a href="#Run-an-externally-accessible-registry" class="headerlink" title="Run an externally-accessible registry"></a>Run an externally-accessible registry</h2><h3 id="仓库服务器"><a href="#仓库服务器" class="headerlink" title="仓库服务器"></a>仓库服务器</h3><ol>
+<li>在仓库服务器上生成认证certificate：<br><code>openssl req -newkey rsa:4096 -nodes -sha256 -keyout /etc/docker/certs/domain.key  -x509 -days 365 -out /etc/docker/certs/domain.crt</code></li>
+</ol>
+<ol start="2">
+<li><p><code>docker container stop registry &amp;&amp; docker container rm -v registry</code></p>
+</li>
+<li><p><code>docker run -d \
+--restart=always \
+--name registry \
+-v &quot;$(pwd)&quot;/certs:/certs \
+-e REGISTRY_HTTP_ADDR=0.0.0.0:5000 \
+-e REGISTRY_HTTP_TLS_CERTIFICATE=/certs/domain.crt \
+-e REGISTRY_HTTP_TLS_KEY=/certs/domain.key \
+-p 5000:5000 \
+registry:2</code></p>
+</li>
+</ol>
+<h3 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h3><ol>
+<li>复制仓库的certificate</li>
+</ol>
+<pre><code>sudo mkdir -p /etc/docker/certs.d/mydockerhub.com:5000
+sudo cp certs/domain.crt /etc/docker/certs.d/mydockerhub.com:5000/ca.crt
+sudo service docker restart
+</code></pre><ol start="2">
+<li><p>docker tag mysql mydockerhub.com:5000/mysql</p>
+</li>
+<li><p>docker push mydockerhub.com:5000/mysql</p>
+</li>
+</ol>
+<h2 id="查看镜像列表"><a href="#查看镜像列表" class="headerlink" title="查看镜像列表"></a>查看镜像列表</h2><p><code>curl -XGET http://localhost:5000/v2/_catalog</code></p>
+</article><br><br><span class="next-post"><a href="/2019/01/19/Spring Cloud/" itemprop="url">Older Post ⇒</a></span><span class="prev-post"><a href="/2019/02/11/ElasticSearch &amp; Mysql/" itemprop="url">⇐ Next Post </a></span><br><br><br></main></body></html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html><html lang="en-us"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><title>线程池 | Developer</title><meta name="description" content="线程池"><meta name="generator" content="Developer"><meta name="author" content="Luo"><meta name="keywords" content="Developer"><meta name="HandheldFriendly" content="True"><meta name="MobileOptimized" content="320"><meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=0"><link rel="stylesheet" type="text/css" href="/styles/screen.css"><link rel="apple-touch-icon" sizes="57x57" href="/images/apple-touch-icon-57x57.png"><link rel="apple-touch-icon" sizes="60x60" href="/images/apple-touch-icon-60x60.png"><link rel="apple-touch-icon" sizes="72x72" href="/images/apple-touch-icon-72x72.png"><link rel="apple-touch-icon" sizes="76x76" href="/images/apple-touch-icon-76x76.png"><link rel="apple-touch-icon" sizes="114x114" href="/images/apple-touch-icon-114x114.png"><link rel="apple-touch-icon" sizes="120x120" href="/images/apple-touch-icon-120x120.png"><link rel="apple-touch-icon" sizes="144x144" href="/images/apple-touch-icon-144x144.png"><link rel="apple-touch-icon" sizes="152x152" href="/images/apple-touch-icon-152x152.png"><link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-180x180.png"><link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png"><link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png"><link rel="icon" type="image/png" sizes="96x96" href="/images/favicon-96x96.png"><link rel="icon" type="image/png" sizes="128x128" href="/images/favicon-128.png"><link rel="icon" type="image/png" sizes="196x196" href="/images/favicon-196x196.png"><meta name="msapplication-TileColor" content="#FFFFFF"><meta name="msapplication-TileImage" content="mstile-144x144.png"><meta name="msapplication-square70x70logo" content="mstile-70x70.png"><meta name="msapplication-square150x150logo" content="mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="mstile-310x150.png"><meta name="msapplication-square310x310logo" content="mstile-310x310.png"><link rel="stylesheet" href="/css/prism-dark.css" type="text/css"></head><body itemscope itemtype="https://schema.org/WebPage"><header itemscope itemtype="https://schema.org/WPHeader"><div class="logo"></div><h1><a href="/" alt="Developer" title="Developer" itemprop="headline">Developer</a></h1><p itemprop="description"></p><nav itemscope itemtype="https://schema.org/SiteNavigationElement"><ul><li itemprop="name"><a href="/ " alt="home" title="home" itemprop="url">home</a></li><li itemprop="name"><a href="/articles" alt="articles" title="articles" itemprop="url">articles</a></li><li itemprop="name"><a href="/author" alt="author" title="author" itemprop="url">author</a></li></ul></nav><div class="space"></div></header><main itemscope itemtype="https://schema.org/Blog"><article class="full"><h1 itemprop="headline" class="post-heading">线程池</h1><span class="page-tag-anchor"><a href="/tags/java" itemprop="url">#java
+&nbsp;&nbsp;</a></span><span class="post-meta"></span><br><br><h1 id="线程池"><a href="#线程池" class="headerlink" title="线程池"></a>线程池</h1><h2 id="线程池的好处"><a href="#线程池的好处" class="headerlink" title="线程池的好处"></a>线程池的好处</h2><ol>
+<li>降低资源消耗： 通过重复利用已创建的线程降低线程创建和销毁造成的消耗</li>
+<li>提高响应速度： 当任务到达时，任务可以不用等到线程创建就能立即执行</li>
+<li>提高线程的可管理性： 使用线程性可以统一分配、调优和监控</li>
+</ol>
+<h2 id="线程数量"><a href="#线程数量" class="headerlink" title="线程数量"></a>线程数量</h2><ol>
+<li>CPU密集型任务应配置尽可能小的线程，如配置N(CPU) + 1 个线程的线程池；</li>
+<li>IO密集型任务线程并不是一直在执行任务，则应配置尽可能多的线程，如2 * N（CPU)</li>
+</ol>
+<h2 id="使用线程池"><a href="#使用线程池" class="headerlink" title="使用线程池"></a>使用线程池</h2><ol>
+<li><p>创建<br>new ThreadPoolExecutor(int corePoolSize, int maximumPoolSize, long keepAliveTime, TimeUnit unit,                          BlockingQueue<runnable> workQueue)</runnable></p>
+</li>
+<li><p>提交任务</p>
+</li>
+</ol>
+<ul>
+<li>execute()</li>
+<li>submit()</li>
+</ul>
+<ul>
+<li>execute 方法用于提交不需要返回值的任务</li>
+<li>submit 方法用于提交需要返回值的任务。 线程池会返回一个future类型的对象，通过这个future对象可以判断任务是否执行成功，future.get()可以获取返回值</li>
+</ul>
+<ol start="3">
+<li>关闭线程池</li>
+</ol>
+<ul>
+<li>shutdown()</li>
+<li>shutdownNow()</li>
+</ul>
+<p>通常用shutdown方法来关闭线程池，如果任务不一定要执行完，则可以调用shutdownNow方法</p>
+<h1 id="Executor框架"><a href="#Executor框架" class="headerlink" title="Executor框架"></a>Executor框架</h1><ul>
+<li>任务： 包括被执行任务需要实现的接口： <strong>Runnable接口</strong>或<strong>Callable接口</strong></li>
+<li>任务的执行： 包括任务执行机制的核心接口Executor, 以及继承自Executor的ExecutorService接口。 <strong>ThreadPoolExecutor</strong> 和 <strong>ScheduledThreadPoolExecutor</strong> 两个关键类实现了ExecutorService接口</li>
+<li>异步计算的结果： 包括接口Future和实现Future接口的FutureTask类</li>
+</ul>
+<h2 id="ThreadPoolExecutor"><a href="#ThreadPoolExecutor" class="headerlink" title="ThreadPoolExecutor"></a>ThreadPoolExecutor</h2><ul>
+<li>FixedThreadPool:   适用于需要限制当前线程数量的应用场景</li>
+<li>SingleThreadExecutor： 适用于需要保证顺序地执行各个任务</li>
+<li>CachedThreadPool： 是大小无界的线程池，适用于执行很多的短期异步任务的小程序</li>
+</ul>
+<blockquote>
+<blockquote>
+<p>通用使用工厂类Executors来创建。</p>
+</blockquote>
+</blockquote>
+<h2 id="ScheduledThreadPoolExecutor"><a href="#ScheduledThreadPoolExecutor" class="headerlink" title="ScheduledThreadPoolExecutor"></a>ScheduledThreadPoolExecutor</h2><ul>
+<li>ScheduledThreadPoolExecutor</li>
+<li>SingleThreadScheduledExecutor</li>
+</ul>
+<h2 id="Runnable接口-和-Callable接口"><a href="#Runnable接口-和-Callable接口" class="headerlink" title="Runnable接口 和 Callable接口"></a>Runnable接口 和 Callable接口</h2><blockquote>
+<blockquote>
+<p>Runnable不会返回结果，Callable可以返回结果<br>工具类Executors可以把Runnable对象封装为一个Callable对象，Executors.callable(Runnable task)</p>
+</blockquote>
+</blockquote>
+</article><br><br><span class="next-post"><a href="/2019/04/23/成为架构师/" itemprop="url">Older Post ⇒</a></span><span class="prev-post"><a href="/2019/06/08/网站性能测试指标（QPS，TPS，吞吐量，响应时间）详解/" itemprop="url">⇐ Next Post </a></span><br><br><br></main></body></html>

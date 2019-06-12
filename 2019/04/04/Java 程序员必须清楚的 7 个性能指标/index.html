@@ -1,0 +1,79 @@
+<!DOCTYPE html><html lang="en-us"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><title>article 2019-04-04 20:08:40 | Developer</title><meta name="description" content="article 2019-04-04 20:08:40"><meta name="generator" content="Developer"><meta name="author" content="Luo"><meta name="keywords" content="Developer"><meta name="HandheldFriendly" content="True"><meta name="MobileOptimized" content="320"><meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=0"><link rel="stylesheet" type="text/css" href="/styles/screen.css"><link rel="apple-touch-icon" sizes="57x57" href="/images/apple-touch-icon-57x57.png"><link rel="apple-touch-icon" sizes="60x60" href="/images/apple-touch-icon-60x60.png"><link rel="apple-touch-icon" sizes="72x72" href="/images/apple-touch-icon-72x72.png"><link rel="apple-touch-icon" sizes="76x76" href="/images/apple-touch-icon-76x76.png"><link rel="apple-touch-icon" sizes="114x114" href="/images/apple-touch-icon-114x114.png"><link rel="apple-touch-icon" sizes="120x120" href="/images/apple-touch-icon-120x120.png"><link rel="apple-touch-icon" sizes="144x144" href="/images/apple-touch-icon-144x144.png"><link rel="apple-touch-icon" sizes="152x152" href="/images/apple-touch-icon-152x152.png"><link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-180x180.png"><link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png"><link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png"><link rel="icon" type="image/png" sizes="96x96" href="/images/favicon-96x96.png"><link rel="icon" type="image/png" sizes="128x128" href="/images/favicon-128.png"><link rel="icon" type="image/png" sizes="196x196" href="/images/favicon-196x196.png"><meta name="msapplication-TileColor" content="#FFFFFF"><meta name="msapplication-TileImage" content="mstile-144x144.png"><meta name="msapplication-square70x70logo" content="mstile-70x70.png"><meta name="msapplication-square150x150logo" content="mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="mstile-310x150.png"><meta name="msapplication-square310x310logo" content="mstile-310x310.png"><link rel="stylesheet" href="/css/prism-dark.css" type="text/css"></head><body itemscope itemtype="https://schema.org/WebPage"><header itemscope itemtype="https://schema.org/WPHeader"><div class="logo"></div><h1><a href="/" alt="Developer" title="Developer" itemprop="headline">Developer</a></h1><p itemprop="description"></p><nav itemscope itemtype="https://schema.org/SiteNavigationElement"><ul><li itemprop="name"><a href="/ " alt="home" title="home" itemprop="url">home</a></li><li itemprop="name"><a href="/articles" alt="articles" title="articles" itemprop="url">articles</a></li><li itemprop="name"><a href="/author" alt="author" title="author" itemprop="url">author</a></li></ul></nav><div class="space"></div></header><main itemscope itemtype="https://schema.org/Blog"><article class="full"><h1 itemprop="headline" class="post-heading">article 2019-04-04 20:08:40</h1><span class="page-tag-anchor"><a href="/tags/java" itemprop="url">#java
+&nbsp;&nbsp;</a></span><span class="post-meta"></span><br><br><p>本文中，小编搜集了7个最有影响的衡量标注，让你可以不依赖日志文件来了解应用程序。现在，让我们看看这些性能指标，并了解如何查看并收集它们：</p>
+<h2 id="响应时间和吞吐量"><a href="#响应时间和吞吐量" class="headerlink" title="响应时间和吞吐量"></a>响应时间和吞吐量</h2><p>根据应用程序的响应时间可以知道程序完成传输数据所用的时间。也可以从HTTP请求级别，或者成为数据库级别来看。对那些缓慢的查询你需要做一些优化来缩短时间。吞吐量是另一个角度衡量传输数据的指标，是指单位时间内系统处理的客户请求的数量。</p>
+<p>我们可以使用APMs（例如New Relic或AppDynamics）来衡量这些指标。使用这些工具，你可以在主报告仪表板中将平均响应时间与昨天的甚至上周的直接进行对比。这有助于我们观察新的部署是否会影响到我们的应用程序。你可以看到网络传输的百分比，测量HTTP完成请求需要多长时间。你也可以看看这篇：网站性能测试指标（QPS，TPS，吞吐量，响应时间）详解。</p>
+<blockquote>
+<blockquote>
+<p>推荐工具：</p>
+</blockquote>
+</blockquote>
+<ul>
+<li>AppDynamics</li>
+<li>New Relic</li>
+<li>Ruxit</li>
+</ul>
+<p>New Relic报告：Web传输百分比和吞吐量</p>
+<h2 id="平均负载"><a href="#平均负载" class="headerlink" title="平均负载"></a>平均负载</h2><p>第二个应用广泛的指标是平均负载。我们习惯上会把平均负载分为这三步测量，分别是第5分钟、第15分钟和最后1分钟。要保证数量低于机器的内核数。一旦超过内核数，机器就会运行在压力状态下。</p>
+<p>除了简单测量CPU使用率，还需要关注每个内核的队列中有多少进程。在内核使用率都是100%的情况下，队列中只有1个任务和有6个任务有很大不同。因此，平均负载不能只考虑CPU使用率。</p>
+<blockquote>
+<blockquote>
+<p>推荐工具：</p>
+</blockquote>
+</blockquote>
+<ul>
+<li>htop</li>
+</ul>
+<h2 id="错误率"><a href="#错误率" class="headerlink" title="错误率"></a>错误率</h2><p>大多数开发人员判断错误率是根据HTTP传输总失败百分比。但是他们忽略了一个更深层的东西：特定传输的错误率。这直接影响到您应用程序的运行状况。这可以显示出代码方法的错误以及错误或异常出现的次数。</p>
+<p>但单纯的错误率数据对我们没有多大帮助。最重要的是我们要找到它们的根源并解决问题。随着Takipi的运行，我们要在日志文件中需找线索。你可以找到所有关于服务器状态的信息，包括堆栈跟踪、源代码和变量值。</p>
+<blockquote>
+<blockquote>
+<p>推荐工具：</p>
+</blockquote>
+</blockquote>
+<ul>
+<li>Takipi</li>
+</ul>
+<h2 id="GC率和暂停时间"><a href="#GC率和暂停时间" class="headerlink" title="GC率和暂停时间"></a>GC率和暂停时间</h2><p>异常行为垃圾收集器应用程序的吞吐量和响应时间采取深潜的主要原因之一。了解GC暂停频率和持续时间的关键是分析GC日志文件。要分析它们，你需要收集GC日志和JVM参数。你要注意观察不同指标之间的数据是如何相互影响的。</p>
+<blockquote>
+<blockquote>
+<p>推荐工具：</p>
+</blockquote>
+</blockquote>
+<ul>
+<li>jClarity Censum</li>
+<li>GCViewer</li>
+</ul>
+<h2 id="业务指标"><a href="#业务指标" class="headerlink" title="业务指标"></a>业务指标</h2><p>应用程序的性能不完全取决于响应时间和错误率。业务指标也是一方面，例如收益、用户数。</p>
+<blockquote>
+<blockquote>
+<p>推荐工具：</p>
+</blockquote>
+</blockquote>
+<ul>
+<li>Grafana</li>
+<li>The ELK stack</li>
+<li>Datadog</li>
+<li>Librato</li>
+</ul>
+<h2 id="正常运行时间和服务运行状态"><a href="#正常运行时间和服务运行状态" class="headerlink" title="正常运行时间和服务运行状态"></a>正常运行时间和服务运行状态</h2><p>这一指标奠定了整个应用程序性能的基础。不仅可以当做一个提醒指标，也可以让你定义一段时间内的SKA。我们可以使用Pingdom的servlet功能进行运行状态检查。我们可以查到应用程序的所有传输，包括数据库和S3。你也可以看看这篇：SLA服务可用性4个9是什么意思？怎么达到？</p>
+<blockquote>
+<blockquote>
+<p>推荐工具：</p>
+</blockquote>
+</blockquote>
+<ul>
+<li>Pingdom</li>
+</ul>
+<h2 id="日志大小"><a href="#日志大小" class="headerlink" title="日志大小"></a>日志大小</h2><p>日志有一个缺点，它是一直在增加的。当您的服务器启动塞满了垃圾，一切都慢下来。因此，我们需要密切的关注日志大小。</p>
+<p>目前通常的解决办法是使用logstash划分使用日志，并将它们发送并存储在Splunk、ELK或其他的日志管理工具中。</p>
+<blockquote>
+<blockquote>
+<p>推荐工具：</p>
+</blockquote>
+</blockquote>
+<ul>
+<li>Splunk</li>
+<li>Sumo Logic</li>
+<li>Loggly</li>
+</ul>
+</article><br><br><span class="next-post"><a href="/2019/02/11/ElasticSearch &amp; Mysql/" itemprop="url">Older Post ⇒</a></span><span class="prev-post"><a href="/2019/04/23/成为架构师/" itemprop="url">⇐ Next Post </a></span><br><br><br></main></body></html>

@@ -408,11 +408,11 @@ console.log
   </entry>
   
   <entry>
-    <title>article 2018-05-02 22:08:42</title>
+    <title>支付功能安全</title>
     <link href="http://yoursite.com/2018/05/02/%E6%94%AF%E4%BB%98%E5%8A%9F%E8%83%BD%E5%AE%89%E5%85%A8/"/>
     <id>http://yoursite.com/2018/05/02/支付功能安全/</id>
     <published>2018-05-02T14:08:42.000Z</published>
-    <updated>2019-06-12T11:43:59.448Z</updated>
+    <updated>2019-06-12T12:01:55.379Z</updated>
     
     <content type="html"><![CDATA[<ol><li><p>密钥信息不能泄漏</p></li><li><p>接口安全验证</p><ul><li>接口请求验证</li><li>数据返回加密</li></ul></li><li><p>服务器安全</p><ul><li>设置密码复杂度</li><li>关闭不必要的端口，开启防火墙</li><li>sudo权限限制</li><li>超级管理员权限</li><li>处理没有属主的文件</li><li>设置各服务权限</li></ul></li></ol>]]></content>
     

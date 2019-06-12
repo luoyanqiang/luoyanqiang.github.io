@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-06-12T11:43:59.558Z</updated>
+  <updated>2019-06-12T11:55:43.865Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>article 2019-06-08 22:51:41</title>
+    <title>性能测试指标</title>
     <link href="http://yoursite.com/2019/06/08/%E7%BD%91%E7%AB%99%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E6%8C%87%E6%A0%87%EF%BC%88QPS%EF%BC%8CTPS%EF%BC%8C%E5%90%9E%E5%90%90%E9%87%8F%EF%BC%8C%E5%93%8D%E5%BA%94%E6%97%B6%E9%97%B4%EF%BC%89%E8%AF%A6%E8%A7%A3/"/>
     <id>http://yoursite.com/2019/06/08/网站性能测试指标（QPS，TPS，吞吐量，响应时间）详解/</id>
     <published>2019-06-08T14:51:41.000Z</published>
-    <updated>2019-06-12T11:43:59.558Z</updated>
+    <updated>2019-06-12T11:55:43.865Z</updated>
     
     <content type="html"><![CDATA[<p>常用的网站性能测试指标有：吞吐量、并发数、响应时间、性能计数器等。</p><h2 id="并发数"><a href="#并发数" class="headerlink" title="并发数"></a>并发数</h2><p>并发数是指系统同时能处理的请求数量，这个也是反应了系统的负载能力。</p><h2 id="响应时间"><a href="#响应时间" class="headerlink" title="响应时间"></a>响应时间</h2><p>响应时间是一个系统最重要的指标之一，它的数值大小直接反应了系统的快慢。响应时间是指执行一个请求从开始到最后收到响应数据所花费的总体时间。</p><h2 id="吞吐量"><a href="#吞吐量" class="headerlink" title="吞吐量"></a>吞吐量</h2><p>吞吐量是指单位时间内系统能处理的请求数量，体现系统处理请求的能力，这是目前最常用的性能测试指标。</p><p>QPS（每秒查询数）、TPS（每秒事务数）是吞吐量的常用量化指标，另外还有HPS（每秒HTTP请求数）。</p><p>跟吞吐量有关的几个重要是：并发数、响应时间。</p><p>QPS（TPS），并发数、响应时间它们三者之间的关系是：</p><p>QPS（TPS）= 并发数/平均响应时间</p><h2 id="性能计数器"><a href="#性能计数器" class="headerlink" title="性能计数器"></a>性能计数器</h2><p>性能计数器是描述服务器或操作系统性能的一些数据指标，如使用内存数、进程时间，在性能测试中发挥着“监控和分析”的作用，尤其是在分析统统可扩展性、进行新能瓶颈定位时有着非常关键的作用。</p><p>Linux中可以使用top或者uptime命令看到当前系统的负载及资源利用率情况。</p><p>资源利用率：指系统各种资源的使用情况，如cpu占用率为68%，内存占用率为55%，一般使用“资源实际使用/总的资源可用量”形成资源利用率。</p><p>所以，一个网站优化的目的即是，最大限度的利用好服务器硬件资源提升资源利用率，减少用户请求的响应时间，提高系统吞吐量，提高系统并发数。</p>]]></content>
     
@@ -87,11 +87,11 @@
   </entry>
   
   <entry>
-    <title>article 2019-04-04 20:08:40</title>
+    <title>7个性能指标</title>
     <link href="http://yoursite.com/2019/04/04/Java%20%E7%A8%8B%E5%BA%8F%E5%91%98%E5%BF%85%E9%A1%BB%E6%B8%85%E6%A5%9A%E7%9A%84%207%20%E4%B8%AA%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87/"/>
     <id>http://yoursite.com/2019/04/04/Java 程序员必须清楚的 7 个性能指标/</id>
     <published>2019-04-04T12:08:40.000Z</published>
-    <updated>2019-06-12T11:43:59.230Z</updated>
+    <updated>2019-06-12T11:53:45.247Z</updated>
     
     <content type="html"><![CDATA[<p>本文中，小编搜集了7个最有影响的衡量标注，让你可以不依赖日志文件来了解应用程序。现在，让我们看看这些性能指标，并了解如何查看并收集它们：</p><h2 id="响应时间和吞吐量"><a href="#响应时间和吞吐量" class="headerlink" title="响应时间和吞吐量"></a>响应时间和吞吐量</h2><p>根据应用程序的响应时间可以知道程序完成传输数据所用的时间。也可以从HTTP请求级别，或者成为数据库级别来看。对那些缓慢的查询你需要做一些优化来缩短时间。吞吐量是另一个角度衡量传输数据的指标，是指单位时间内系统处理的客户请求的数量。</p><p>我们可以使用APMs（例如New Relic或AppDynamics）来衡量这些指标。使用这些工具，你可以在主报告仪表板中将平均响应时间与昨天的甚至上周的直接进行对比。这有助于我们观察新的部署是否会影响到我们的应用程序。你可以看到网络传输的百分比，测量HTTP完成请求需要多长时间。你也可以看看这篇：网站性能测试指标（QPS，TPS，吞吐量，响应时间）详解。</p><blockquote><blockquote><p>推荐工具：</p></blockquote></blockquote><ul><li>AppDynamics</li><li>New Relic</li><li>Ruxit</li></ul><p>New Relic报告：Web传输百分比和吞吐量</p><h2 id="平均负载"><a href="#平均负载" class="headerlink" title="平均负载"></a>平均负载</h2><p>第二个应用广泛的指标是平均负载。我们习惯上会把平均负载分为这三步测量，分别是第5分钟、第15分钟和最后1分钟。要保证数量低于机器的内核数。一旦超过内核数，机器就会运行在压力状态下。</p><p>除了简单测量CPU使用率，还需要关注每个内核的队列中有多少进程。在内核使用率都是100%的情况下，队列中只有1个任务和有6个任务有很大不同。因此，平均负载不能只考虑CPU使用率。</p><blockquote><blockquote><p>推荐工具：</p></blockquote></blockquote><ul><li>htop</li></ul><h2 id="错误率"><a href="#错误率" class="headerlink" title="错误率"></a>错误率</h2><p>大多数开发人员判断错误率是根据HTTP传输总失败百分比。但是他们忽略了一个更深层的东西：特定传输的错误率。这直接影响到您应用程序的运行状况。这可以显示出代码方法的错误以及错误或异常出现的次数。</p><p>但单纯的错误率数据对我们没有多大帮助。最重要的是我们要找到它们的根源并解决问题。随着Takipi的运行，我们要在日志文件中需找线索。你可以找到所有关于服务器状态的信息，包括堆栈跟踪、源代码和变量值。</p><blockquote><blockquote><p>推荐工具：</p></blockquote></blockquote><ul><li>Takipi</li></ul><h2 id="GC率和暂停时间"><a href="#GC率和暂停时间" class="headerlink" title="GC率和暂停时间"></a>GC率和暂停时间</h2><p>异常行为垃圾收集器应用程序的吞吐量和响应时间采取深潜的主要原因之一。了解GC暂停频率和持续时间的关键是分析GC日志文件。要分析它们，你需要收集GC日志和JVM参数。你要注意观察不同指标之间的数据是如何相互影响的。</p><blockquote><blockquote><p>推荐工具：</p></blockquote></blockquote><ul><li>jClarity Censum</li><li>GCViewer</li></ul><h2 id="业务指标"><a href="#业务指标" class="headerlink" title="业务指标"></a>业务指标</h2><p>应用程序的性能不完全取决于响应时间和错误率。业务指标也是一方面，例如收益、用户数。</p><blockquote><blockquote><p>推荐工具：</p></blockquote></blockquote><ul><li>Grafana</li><li>The ELK stack</li><li>Datadog</li><li>Librato</li></ul><h2 id="正常运行时间和服务运行状态"><a href="#正常运行时间和服务运行状态" class="headerlink" title="正常运行时间和服务运行状态"></a>正常运行时间和服务运行状态</h2><p>这一指标奠定了整个应用程序性能的基础。不仅可以当做一个提醒指标，也可以让你定义一段时间内的SKA。我们可以使用Pingdom的servlet功能进行运行状态检查。我们可以查到应用程序的所有传输，包括数据库和S3。你也可以看看这篇：SLA服务可用性4个9是什么意思？怎么达到？</p><blockquote><blockquote><p>推荐工具：</p></blockquote></blockquote><ul><li>Pingdom</li></ul><h2 id="日志大小"><a href="#日志大小" class="headerlink" title="日志大小"></a>日志大小</h2><p>日志有一个缺点，它是一直在增加的。当您的服务器启动塞满了垃圾，一切都慢下来。因此，我们需要密切的关注日志大小。</p><p>目前通常的解决办法是使用logstash划分使用日志，并将它们发送并存储在Splunk、ELK或其他的日志管理工具中。</p><blockquote><blockquote><p>推荐工具：</p></blockquote></blockquote><ul><li>Splunk</li><li>Sumo Logic</li><li>Loggly</li></ul>]]></content>
     
@@ -115,7 +115,7 @@
     <link href="http://yoursite.com/2019/02/11/ElasticSearch%20&amp;%20Mysql/"/>
     <id>http://yoursite.com/2019/02/11/ElasticSearch &amp; Mysql/</id>
     <published>2019-02-11T14:23:15.000Z</published>
-    <updated>2019-06-12T11:43:59.183Z</updated>
+    <updated>2019-06-12T11:54:32.412Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Elasticsearch-amp-MySQL"><a href="#Elasticsearch-amp-MySQL" class="headerlink" title="Elasticsearch &amp; MySQL"></a>Elasticsearch &amp; MySQL</h1><p>Elasticsearch is used as an open-source, distributed search engine. MySQL is an open-source, relational database management system.</p><p>There are serval ways of pushing existing relational data to Elasticsearch.</p><h2 id="Logstash-JDBC-input-plugin"><a href="#Logstash-JDBC-input-plugin" class="headerlink" title="Logstash JDBC input plugin"></a>Logstash JDBC input plugin</h2><p>This time I’ll show you pushing existing relational data to Elasticsearch using Logstash JDBC input plugin. This plugin has been created as a way to ingest data in any database with a JDBC interface into Logstash. </p><p>Firstly let’s create a config file to instruct the Logstash, the way data injection should happen. </p><p>The example configuration named “logstash-config.conf” as followed.</p><pre><code>input {  jdbc {    jdbc_driver_library =&gt; &quot;/usr/local/src/library/mysql-connector-java-5.1.46.jar&quot;    jdbc_driver_class =&gt; &quot;com.mysql.jdbc.Driver&quot;    jdbc_connection_string =&gt; &quot;jdbc:mysql://192.168.0.112:3306/sharing_space&quot;    jdbc_user =&gt; &quot;root&quot;    jdbc_password =&gt; &quot;Hepai2018&quot;    schedule =&gt; &quot;*/5 * * * *&quot;    statement =&gt; &quot;select s.*, area.`name` as area_name, district.`name` as district_name, top_industry.industry_name as top_industry_name, sub_industry.industry_name as sub_industry_name from share_space s LEFT JOIN share_area area on s.area_id = area.area_id left join share_district district on s.district_id = district.district_id left join share_industry top_industry on s.industry_id = top_industry.industry_id left join share_industry sub_industry on s.sub_industry_id = sub_industry.industry_id where s.update_time&gt;:sql_last_value order by s.space_id&quot;    use_column_value =&gt; true    tracking_column =&gt; update_time    tracking_column_type =&gt; &quot;timestamp&quot;    jdbc_paging_enabled =&gt; true    jdbc_page_size =&gt; 500    tags =&gt; &quot;mysql-share-space&quot;  }}output {  if &quot;mysql-share-space&quot; in [tags] {        elasticsearch {         hosts=&gt;[&quot;127.0.0.1:8902&quot;]         index =&gt; &quot;hedianzhan&quot;         document_type =&gt; &quot;share_space&quot;         document_id =&gt; &quot;%{space_id}&quot;        }        stdout {          codec =&gt; rubydebug        }  }}</code></pre><p>It will push rows in the “share_space” table left join area, district, industry table to Elasticsearch. The “space_id” column is an auto increment primary key.</p><p>You can run the Logstash using <code>bin/logstash -f logstash-config.conf</code> command.</p><p>This configuration will present the changed rows for having these option.</p><ol><li><p><code>schedule =&gt; &quot;*/5 * * * *&quot;</code>  will run the same configuration file again and again in every 5 minutes</p></li><li><p><code>document_id =&gt; &quot;%{space_id}&quot;</code> , the “document_id” option is for preventing Elasticsearch from creating the same documents again and again. Here we have told pulgin to use the primary key (“space_id” field) as the unique document id. Then Elasticsearch will not create multiple documents for the same record since it does not create documents with same document id. Then the existing one will get replaced with the newest ones. Then the newly added and changed records’ data will be present at the Elasticsearch.</p></li><li><p>“statement” option with “:sql_last_value”, <code>use_column_value =&gt; true</code>, <code>tracking_column =&gt; update_time</code>, <code>tracking_column_type =&gt; &quot;timestamp&quot;</code>, the “share_space” table has a “update_time” column which gets updated whenever a change is happend to a row. This option will incrementally update the data in the Elasticsearch using a “update_time” column. </p></li></ol><p>Here used the option of “:sql_last_value”, it contains the value that is used as the reference to select data to be retrieved. Initially this is set to Thursday, 1 January 1970. And then it jumps to current time. After that it increments the time using the time period specified in the schedule option.</p><p>The sql_last_value is saved in to a metadata file called .logstash_jdbc_last_run automatically. In Linux, it is inside the home folder.</p><p>The option “use_column_value” is used to only retrieves the data in the table in which “update_time” is greater than the value of the “update_time” of the record which was pushed at last, instead of increasing the value of :sql_last_value according to the scheduler. This is very suitable if the “update_time” is set at the program level instead of the database level(Because Logstash could have run the query at the time the records are saved to the database. Therefore, we may miss some records).</p><p>The option “tracking_column_type” is a time-stamp column. Therefore, we have told that to Logstash using tracking_column_type option in advance. </p><p>The option “last_run_metadata_path” is another useful option. This is very important if you want to run two SQL queries at the same time with two parameters.</p><p>All above are the necessary informantion to work with Logstash JDBC input plugin. Just try.</p><h2 id="go-mysql-elasticsearch"><a href="#go-mysql-elasticsearch" class="headerlink" title="go-mysql-elasticsearch"></a>go-mysql-elasticsearch</h2><p>go-mysql-elasticsearch is a service syncing your MySQL data into Elasticsearch automatically.<br>It uses <code>mysqldump</code> to fetch the origin data at first, then syncs data incrementally with binlog.</p><p>You can get the information from “<a href="https://github.com/siddontang/go-mysql-elasticsearch&quot;" target="_blank" rel="noopener">https://github.com/siddontang/go-mysql-elasticsearch&quot;</a> .</p>]]></content>
     
@@ -131,28 +131,9 @@
     
       <category term="java" scheme="http://yoursite.com/tags/java/"/>
     
-  </entry>
-  
-  <entry>
-    <title>搭建私有docker仓库</title>
-    <link href="http://yoursite.com/2019/01/31/%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%89docker%E4%BB%93%E5%BA%93/"/>
-    <id>http://yoursite.com/2019/01/31/搭建私有docker仓库/</id>
-    <published>2019-01-31T13:56:49.000Z</published>
-    <updated>2019-06-12T11:43:59.448Z</updated>
+      <category term="ELK" scheme="http://yoursite.com/tags/ELK/"/>
     
-    <content type="html"><![CDATA[<h1 id="搭建私有docker仓库"><a href="#搭建私有docker仓库" class="headerlink" title="搭建私有docker仓库"></a>搭建私有docker仓库</h1><h2 id="拉取并运行仓库"><a href="#拉取并运行仓库" class="headerlink" title="拉取并运行仓库"></a>拉取并运行仓库</h2><ol><li><p>首先要安装docker, registry其实是docker中的一个镜像</p></li><li><p><code>docker run -d -p 5000:5000 --restart=always --name registry registry:2</code></p></li></ol><h2 id="测试仓库"><a href="#测试仓库" class="headerlink" title="测试仓库"></a>测试仓库</h2><ol><li><p><code>docker pull php</code></p></li><li><p><code>docker tag php localhost:5000/php</code></p></li><li><p><code>docker push localhost:5000/php</code></p></li><li><p><code>docker image remove php</code></p></li><li><p><code>docker image remove localhost:5000/php</code></p></li><li><p><code>docker pull localhost:5000/php</code></p></li></ol><h2 id="Run-an-externally-accessible-registry"><a href="#Run-an-externally-accessible-registry" class="headerlink" title="Run an externally-accessible registry"></a>Run an externally-accessible registry</h2><h3 id="仓库服务器"><a href="#仓库服务器" class="headerlink" title="仓库服务器"></a>仓库服务器</h3><ol><li>在仓库服务器上生成认证certificate：<br><code>openssl req -newkey rsa:4096 -nodes -sha256 -keyout /etc/docker/certs/domain.key  -x509 -days 365 -out /etc/docker/certs/domain.crt</code></li></ol><ol start="2"><li><p><code>docker container stop registry &amp;&amp; docker container rm -v registry</code></p></li><li><p><code>docker run -d \--restart=always \--name registry \-v &quot;$(pwd)&quot;/certs:/certs \-e REGISTRY_HTTP_ADDR=0.0.0.0:5000 \-e REGISTRY_HTTP_TLS_CERTIFICATE=/certs/domain.crt \-e REGISTRY_HTTP_TLS_KEY=/certs/domain.key \-p 5000:5000 \registry:2</code></p></li></ol><h3 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h3><ol><li>复制仓库的certificate</li></ol><pre><code>sudo mkdir -p /etc/docker/certs.d/mydockerhub.com:5000sudo cp certs/domain.crt /etc/docker/certs.d/mydockerhub.com:5000/ca.crtsudo service docker restart</code></pre><ol start="2"><li><p>docker tag mysql mydockerhub.com:5000/mysql</p></li><li><p>docker push mydockerhub.com:5000/mysql</p></li></ol><h2 id="查看镜像列表"><a href="#查看镜像列表" class="headerlink" title="查看镜像列表"></a>查看镜像列表</h2><p><code>curl -XGET http://localhost:5000/v2/_catalog</code></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;搭建私有docker仓库&quot;&gt;&lt;a href=&quot;#搭建私有docker仓库&quot; class=&quot;headerlink&quot; title=&quot;搭建私有docker仓库&quot;&gt;&lt;/a&gt;搭建私有docker仓库&lt;/h1&gt;&lt;h2 id=&quot;拉取并运行仓库&quot;&gt;&lt;a href=&quot;#拉取并运行仓
-      
-    
-    </summary>
-    
-    
-      <category term="java" scheme="http://yoursite.com/tags/java/"/>
+      <category term="mysql" scheme="http://yoursite.com/tags/mysql/"/>
     
   </entry>
   
@@ -161,7 +142,7 @@
     <link href="http://yoursite.com/2019/01/19/Spring%20Cloud/"/>
     <id>http://yoursite.com/2019/01/19/Spring Cloud/</id>
     <published>2019-01-19T12:40:58.000Z</published>
-    <updated>2019-06-12T11:43:59.355Z</updated>
+    <updated>2019-06-12T11:57:50.442Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Spring-Cloud"><a href="#Spring-Cloud" class="headerlink" title="Spring Cloud"></a>Spring Cloud</h1><p>Technologies involved:</p><ul><li>Spring Cloud Netflix Eureka              -&gt;   diretory for all APIs</li><li>Spring Cloud Netflix Ribbon               -&gt;   network cops for all communications</li><li>Spring Cloud Netflix Hystrix              -&gt;   re-router/circuit breaker</li><li>Spring Cloud Netflix Hystrix Dashborad -&gt;   cctv cameras for all rest calls</li><li>Spring Cloud Netflix Zuul              -&gt;   gatekeepers for APIs</li><li>Spring Config Server                      -&gt;   babysitter for configurations of all APIs</li><li>Spring Cloud Sleuth                      -&gt;   tracer for All APIs</li><li>Dockers                                  -&gt;   big smiling fish thingy, for building, shipping &amp; running apps </li></ul><h2 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h2><ol><li>application.yml  vs  bootstrap.yml</li><li>spring boot actuator 监控微服务实例</li></ol>]]></content>
     
@@ -178,14 +159,16 @@
     
       <category term="java" scheme="http://yoursite.com/tags/java/"/>
     
+      <category term="spring cloud" scheme="http://yoursite.com/tags/spring-cloud/"/>
+    
   </entry>
   
   <entry>
-    <title>article 2018-12-25 19:54:03</title>
+    <title>java队列分析</title>
     <link href="http://yoursite.com/2018/12/25/%E9%98%9F%E5%88%97%E5%8E%9F%E7%90%86/"/>
     <id>http://yoursite.com/2018/12/25/队列原理/</id>
     <published>2018-12-25T11:54:03.000Z</published>
-    <updated>2019-06-12T11:43:59.589Z</updated>
+    <updated>2019-06-12T11:56:28.514Z</updated>
     
     <content type="html"><![CDATA[<h2 id="LinkedBlockingQueue"><a href="#LinkedBlockingQueue" class="headerlink" title="LinkedBlockingQueue"></a>LinkedBlockingQueue</h2><p>take(), poll()通过ReentrantLock独占锁保证线程安全； 通过Codition进行通知</p><ol><li>ArrayBlockingQueue vs LinkedBlockingQueue</li></ol><ul><li><p>相同点： </p><ul><li>ArrayBlockingQueue与LinkdedBlockingQueue都实现自BlockingQueue。 这个接口从队列中取元素时，当队列为空会等待到队列不为空； 当存入一个元素，没有足够的空间时，会等待到有空余位置。</li><li>原则都是FIFO(first in first out)</li></ul></li><li><p>不同点： </p><ul><li>ArrayBlockingQueue是由数组实现，LinkedBlockingQueue则由链表数据结构实现；</li><li>ArrayBlockingQueue是有界队列，创建时需要指定容量; LinkedBlockingQueue则不强制指定容量 </li></ul></li></ul><ol start="2"><li>LinkedBlockingQueue vs ConcurrentLinkedQueue</li></ol><h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><p>在秒杀活动中：</p><ul><li><p>ArrayBlockingQueue是初始容量固定的阻塞队列，我们可以用来作为数据库模块成功竞拍的队列，比如有10个商品，那么我们就设定一个10大小的数组队列。数据库主要是使用一个ArrayBlockingQueue来暂存有可能成功的用户请求。</p></li><li><p>ConcurrentLinkedQueue使用的是CAS原语无锁队列实现，是一个异步队列，入队的速度很快，出队进行了加锁，性能稍慢。由于秒杀系统入队需求要远大于出队需求，一般不会出现队空的情况，所以我们可以选择ConcurrentLinkedQueue来作为我们的请求队列实现。</p></li></ul>]]></content>
     
@@ -204,11 +187,11 @@
   </entry>
   
   <entry>
-    <title>article 2018-12-13 21:06:37</title>
+    <title>postman设置全局变量</title>
     <link href="http://yoursite.com/2018/12/13/postman%E8%AE%BE%E7%BD%AE%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F/"/>
     <id>http://yoursite.com/2018/12/13/postman设置全局变量/</id>
     <published>2018-12-13T13:06:37.000Z</published>
-    <updated>2019-06-12T11:43:59.323Z</updated>
+    <updated>2019-06-12T11:58:57.239Z</updated>
     
     <content type="html"><![CDATA[<ol><li>在Tests中写js, 可以在View-&gt;show postman console中查看调试结果</li></ol><pre><code>console.log(pm.response.json().access_token);console.log(pm.environment.get(&quot;Authorization&quot;))pm.environment.set(&quot;Authorization&quot;, pm.response.json().access_token);</code></pre>]]></content>
     
@@ -231,11 +214,11 @@ console.log
   </entry>
   
   <entry>
-    <title>article 2018-11-17 22:57:00</title>
+    <title>非空判断</title>
     <link href="http://yoursite.com/2018/11/17/%E4%BC%98%E9%9B%85%E7%9A%84%E9%9D%9E%E7%A9%BA%E5%88%A4%E6%96%AD/"/>
     <id>http://yoursite.com/2018/11/17/优雅的非空判断/</id>
     <published>2018-11-17T14:57:00.000Z</published>
-    <updated>2019-06-12T11:43:59.386Z</updated>
+    <updated>2019-06-12T11:55:06.851Z</updated>
     
     <content type="html"><![CDATA[<h2 id="Optinal"><a href="#Optinal" class="headerlink" title="Optinal"></a>Optinal</h2><h2 id="Preconditions"><a href="#Preconditions" class="headerlink" title="Preconditions"></a>Preconditions</h2><h2 id="Asserts-notNull"><a href="#Asserts-notNull" class="headerlink" title="Asserts.notNull()"></a>Asserts.notNull()</h2><p>项目架构应该使用异常机制处理逻辑上的错误，这样可以使用切点统一进行捕捉，代码可读性更高，后期维护成本更低，只是会消耗一点点性能，这点性能，项目还是承受得起的。</p>]]></content>
     
@@ -284,7 +267,7 @@ console.log
     <link href="http://yoursite.com/2018/10/12/Kibanna/"/>
     <id>http://yoursite.com/2018/10/12/Kibanna/</id>
     <published>2018-10-12T11:19:27.000Z</published>
-    <updated>2019-06-12T11:43:59.261Z</updated>
+    <updated>2019-06-12T11:52:14.627Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Kibana"><a href="#Kibana" class="headerlink" title="Kibana"></a>Kibana</h1><p>Kibana is an open source analytics and visualization platform designed to work with Elasticsearch. You use Kibana to search, view, and interact with data stored in Elasticsearch indices. You can easily perfrom advanced data analysis and visualize your data in a variety of charts, tables, and maps.</p><p>Kibanna是开源的，设计用来跟Elasticsearch协同工作的分析、可视化平台。你可以用Kibana对储存在Elasticsearch索引中的数据进行搜索、查看、互动。你可以轻易地执行高级数据分析，使用丰富的图形、表格、地图对数据可视化。</p>]]></content>
     
@@ -298,7 +281,7 @@ console.log
     </summary>
     
     
-      <category term="java" scheme="http://yoursite.com/tags/java/"/>
+      <category term="ELK" scheme="http://yoursite.com/tags/ELK/"/>
     
   </entry>
   
@@ -326,11 +309,11 @@ console.log
   </entry>
   
   <entry>
-    <title>article 2018-09-26 20:21:14</title>
+    <title>spring cloud网关</title>
     <link href="http://yoursite.com/2018/09/26/spring%20cloud%E7%BD%91%E5%85%B3/"/>
     <id>http://yoursite.com/2018/09/26/spring cloud网关/</id>
     <published>2018-09-26T12:21:14.000Z</published>
-    <updated>2019-06-12T11:43:59.355Z</updated>
+    <updated>2019-06-12T11:57:42.633Z</updated>
     
     <content type="html"><![CDATA[<h2 id="常用服务"><a href="#常用服务" class="headerlink" title="常用服务"></a>常用服务</h2><ol><li>zuul</li><li>gateway</li></ol><h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><ol><li>动态路由</li><li>限流</li><li>验证与安全保障</li><li>审查与监控</li><li>压力测试？</li><li>负载分配</li></ol><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>zuul也是基于spring boot的应用，本质上也是个web servlet应用。提供动态路由、监控、弹性、安全等边缘服务的框架。</p><h2 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h2><ol><li>过滤器机制 </li></ol><p>zuul的核心是一系列的filters, 其作用可以类比Servlet框架的Filter, 或者AOP。</p><p>zuul中定义了四种标准过滤器类型：</p><ul><li>PRE: 这种过滤器在请求被路由之前调用，我们可利用这种过滤器实现身份证，在集群中选择请求的微服务，记录调试信息等。</li><li>ROUTING: 这种过滤器将请求路由到微服务。</li><li>POST: 这种这滤器在路由到微服务以后执行，这种过滤器可用来为响应添加标准的HTTP Header, 收集统计信息和指标，将响应从微服务发送给客户端等</li><li>ERROR: 在其他阶段发生错误时执行该过滤器</li></ul>]]></content>
     
@@ -349,6 +332,8 @@ console.log
     
     
       <category term="java" scheme="http://yoursite.com/tags/java/"/>
+    
+      <category term="spring cloud" scheme="http://yoursite.com/tags/spring-cloud/"/>
     
   </entry>
   
@@ -399,11 +384,11 @@ console.log
   </entry>
   
   <entry>
-    <title>article 2018-07-04 19:54:58</title>
+    <title>spring boot best pratices</title>
     <link href="http://yoursite.com/2018/07/04/SpringBoot%20Best%20Pratices/"/>
     <id>http://yoursite.com/2018/07/04/SpringBoot Best Pratices/</id>
     <published>2018-07-04T11:54:58.000Z</published>
-    <updated>2019-06-12T11:43:59.370Z</updated>
+    <updated>2019-06-12T11:57:10.858Z</updated>
     
     <content type="html"><![CDATA[<ol><li><p>Use Lombok to decoreate Java POJOs.<br><code>`</code><br>@Data<br>@Builder<br>public class Address {<br> @Id<br> private Long id;</p><p> private String city;<br>}</p></li></ol><p>//usage<br>Address address = Address.builder().city(“shenzhen”).build();<br><code>`</code></p>]]></content>
     
@@ -495,6 +480,29 @@ console.log
       
       
         &lt;h1 id=&quot;Spring-事务&quot;&gt;&lt;a href=&quot;#Spring-事务&quot; class=&quot;headerlink&quot; title=&quot;Spring 事务&quot;&gt;&lt;/a&gt;Spring 事务&lt;/h1&gt;&lt;h2 id=&quot;Propagation&quot;&gt;&lt;a href=&quot;#Propagation&quot; c
+      
+    
+    </summary>
+    
+    
+      <category term="java" scheme="http://yoursite.com/tags/java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>OutOfMemoryError 与 StackOverflowError</title>
+    <link href="http://yoursite.com/2018/02/27/OutOfMemoryError%E5%BC%82%E5%B8%B8/"/>
+    <id>http://yoursite.com/2018/02/27/OutOfMemoryError异常/</id>
+    <published>2018-02-27T11:01:00.000Z</published>
+    <updated>2019-06-12T11:43:59.323Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="OutOfMemoryError-与-StackOverflowError"><a href="#OutOfMemoryError-与-StackOverflowError" class="headerlink" title="OutOfMemoryError 与 StackOverflowError"></a>OutOfMemoryError 与 StackOverflowError</h1><p>除了程序计数器外，虚拟机内存的其他几个运行时区域都有可能发生OutOfMemoryError异常。</p><h2 id="Java堆溢出"><a href="#Java堆溢出" class="headerlink" title="Java堆溢出"></a>Java堆溢出</h2><p>Java堆用于存储对象实例，只要不断地创建对象，并且没有被垃圾回收机制清除，在对象数量到达最大堆的容量限制后就会产生内存溢出异常。</p><p>异常信息提示“java.lang.OutOfMemoryError”, “Java heap space”。</p><p>通过内存映象分析工具（如Eclipse Memory Analyzor)对Dump出来的堆转储快照进行分析。</p><p>从代码上检查是否存在某些对象生命周期过长，持有状态时间过长的情况，尝试减少程序运行期的内存消耗。另外检查虚拟机的堆参数（-Xmx与-Xms），与机器物理内存对比看是否还可以调大。</p><h2 id="虚拟机栈和本地方法栈溢出"><a href="#虚拟机栈和本地方法栈溢出" class="headerlink" title="虚拟机栈和本地方法栈溢出"></a>虚拟机栈和本地方法栈溢出</h2><p>HotSpot虚拟机中并不区分虚拟机栈和本地方法栈，因此对于HotSpot来说，栈容量只由-Xss参数设定。</p><p>这两区域有以下两种异常：</p><ul><li>如果线程请求的栈深度大于虚拟机所允许的最大深度，将抛出StackOverflowError异常;</li><li>如果虚拟机在扩展栈时，无法申请到足够的内存空间，则抛出OutOfMemroyError异常。</li></ul><p>单个线程下，无论是由于栈帧太大，还是虚拟机栈容量太小，当内存无法分配的时候，虚拟机抛出的都是StackOverflowError异常。</p><p>多线程情况下，每个线程分配到的栈容量越大，可以建立的线程数量越少，建立越多线程更容易把内存耗尽。</p><p>因为操作系统分配给每个进程的内存是有限制的，譬如32位的Windows限制为2GB,虚拟机提供了参数来控制Java堆和方法区的这两部分内存的最大值。剩余的内存为2GB（操作系统限制）减去Xmx(最大堆容量),再减去MaxPermSize(最大方法区容量)，程序计数器消耗内存很小，可以忽略掉。如果虚拟机进程本身耗费的内存不计算在内，剩下的内存就由虚拟机栈和本地方法栈瓜分了。</p><p>解决方法： 如果是建立过多线程导致的内存溢出，在不能减少线程数量的情况下，就只能通过减最大堆和减少栈容量来换取更多的线程。</p><h2 id="方法区和运行时常量池溢出"><a href="#方法区和运行时常量池溢出" class="headerlink" title="方法区和运行时常量池溢出"></a>方法区和运行时常量池溢出</h2><p>运行时常量池是方法区的一部分。在JDK1.6及之前的版本中，由于常量池分配在永久代内，我们可以通过-XX:PermSize和-XX:MaxPermSize限制方法区大小，从而间接限制其中常量池的容量。</p><p>方法区用于存放Class的相关信息，如类名、访问修饰符、常量池、字段描述、方法描述等。这些区域的测试，可以在运行时产生大量的类去填满方法区，直到溢出。</p><h2 id="本地直接内存溢出"><a href="#本地直接内存溢出" class="headerlink" title="本地直接内存溢出"></a>本地直接内存溢出</h2><p>DirectMemory容量可通过-XX:MaxDirectMemorySize指定，如果不指定，则默认与Java堆最大值（-Xmx指定）一样。</p><p>由DirectMemory导致的内存溢出，一个明显的特征是在Heap Dump文件中不会看见明显的异常，如果读者发现OOM之后Dump文件很小，而程序中又直接或间接使用了NIO, 可以考虑检查一下是不是这方面的原因。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;OutOfMemoryError-与-StackOverflowError&quot;&gt;&lt;a href=&quot;#OutOfMemoryError-与-StackOverflowError&quot; class=&quot;headerlink&quot; title=&quot;OutOfMemoryError 与
       
     
     </summary>

@@ -64,29 +64,6 @@
   </entry>
   
   <entry>
-    <title>架构师</title>
-    <link href="http://yoursite.com/2019/04/23/%E6%88%90%E4%B8%BA%E6%9E%B6%E6%9E%84%E5%B8%88/"/>
-    <id>http://yoursite.com/2019/04/23/成为架构师/</id>
-    <published>2019-04-23T14:44:18.000Z</published>
-    <updated>2019-06-12T11:43:59.433Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="架构师"><a href="#架构师" class="headerlink" title="架构师"></a>架构师</h1><h2 id="必要条件"><a href="#必要条件" class="headerlink" title="必要条件"></a>必要条件</h2><ol><li><p>具备一定的调优能力，比如需要能通过看日志，进行JVM内存调优，或者通过看执行计划等方式，进行SQL调优。</p></li><li><p>得了解<strong>设计模式</strong>，可以不用精通，但至少得知道，在哪种场景里，可以通过哪种模式来优化结构。</p></li><li><p>这个是关键的一条，考虑问题时，得摆脱“单机版”的局限，在知识储备里，得包含负载均衡，消息队列，数据库集群等基于分布式的知识点。      </p></li><li><p>和人打交道时，至少没障碍，至少得能清晰地表达出自己的意思。</p></li></ol><h2 id="升级捷径"><a href="#升级捷径" class="headerlink" title="升级捷径"></a>升级捷径</h2><ol><li>在这里公司里干活的高级开发，平时一定得多看相关书籍，看的时候围绕一个主题：如果让我设计一个能满足双十一流量的架构，我该怎么做？再具体下，如果让我设计一个高并发流量的秒杀系统，我又该怎么做？其实很多架构面试题就围绕这两方面。</li></ol><h2 id="必备技能"><a href="#必备技能" class="headerlink" title="必备技能"></a>必备技能</h2><ol><li>围绕着刚才说的，实现一套能满足高并发的系统，那么得了解负载均衡，限流，模块间的消息队列，缓存，热备冗余，数据库集群等知识。</li></ol><p>其实对高级开发而言，学习本身不是难点，关键是不知道该学什么，以及每个要点该学到什么程度？这里，如果你要面试成功，那么每个知识点知道个大概即可。</p><ol start="2"><li><p>体到学习路线，目前我知道的有阿里路线，我也见过有人把spring cloud各组件了解透，然后完成升级的案例。</p></li><li><p>对我而言，我升级时是看《亿级流量网站架构核心技术》这本书，其中涵盖的知识面比较全，然后我再根据其中给出的知识体系逐一再深入，比方说，我看了其中有提到用hystrix做限流，我就再看其它资料，深入了解下这个组件的配置等详细用法。总之，先看面，再深入点，随后再根据各组件，组装一个能应付高并发的系统。 </p></li><li><p>这个是比较容易忽视的一点，架构师一定得会沟通，这往往也是升级的瓶颈。</p></li></ol><p>架构师得和产品沟通，以得到本系统的需求，同时得和需求方协调，在有限的时间里一定做不到面面俱到，一定得有所放弃，这个得事先谈好。然后再设计，拼接组件，然后得和开发或开发经理沟通，别让开发误解自己设计架构时的本意。</p><p>我目前不是架构，还在升级的路上，根据我接触到的架构师的升级经验，以及我本身的升级体会，在这里来总结下架构师的技术升级要点：用两个字来描述：集群，用三个字：分布式，再用多点的文字：把海量的流量和数据合理分摊到数量合适的机器上。</p><p>想明白这点，后面就能知道该学哪些了，比如流量分摊时得负载均衡，存储海量数据时得靠数据库集群，或分库分表，为了防止单点失效，得设计冗余系统，系统间通讯时得用消息中间件，不能让每次请求都走后台，所以可以搭建缓存，单个缓存容易失效，所以可以搭建分布式缓存，为了监控性能，所以得上一些监控措施，比如监控JVM，监控数据等的，为了等看日志，所以得上一些日志组件。等等。</p><p>上述知识点掌握后，再组装起来，比如搭建一个秒杀系统以检验自己的学习成果。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;架构师&quot;&gt;&lt;a href=&quot;#架构师&quot; class=&quot;headerlink&quot; title=&quot;架构师&quot;&gt;&lt;/a&gt;架构师&lt;/h1&gt;&lt;h2 id=&quot;必要条件&quot;&gt;&lt;a href=&quot;#必要条件&quot; class=&quot;headerlink&quot; title=&quot;必要条件&quot;&gt;&lt;/a&gt;必要条
-      
-    
-    </summary>
-    
-    
-      <category term="java" scheme="http://yoursite.com/tags/java/"/>
-    
-  </entry>
-  
-  <entry>
     <title>7个性能指标</title>
     <link href="http://yoursite.com/2019/04/04/Java%20%E7%A8%8B%E5%BA%8F%E5%91%98%E5%BF%85%E9%A1%BB%E6%B8%85%E6%A5%9A%E7%9A%84%207%20%E4%B8%AA%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87/"/>
     <id>http://yoursite.com/2019/04/04/Java 程序员必须清楚的 7 个性能指标/</id>
@@ -509,6 +486,31 @@ console.log
     
     
       <category term="java" scheme="http://yoursite.com/tags/java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Elasticsearch</title>
+    <link href="http://yoursite.com/2018/02/12/ElasticSearch/"/>
+    <id>http://yoursite.com/2018/02/12/ElasticSearch/</id>
+    <published>2018-02-12T11:37:08.000Z</published>
+    <updated>2019-06-12T11:54:19.853Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Elasticsearch"><a href="#Elasticsearch" class="headerlink" title="Elasticsearch"></a>Elasticsearch</h1><p>Elasticsearch is a distributed, RESTful search and analytics engine capable of solving a growing number of use cases. As the heart of the Elastic Stack, it centrall stores your data so you can discover the expected and uncover the unexpected.<br>Elasticsearch是一个分布式的，RESTful搜索接口的，分析引擎，能够解决数据增长的安全。Elastic栈的核心是集中存储你的数据，所以你能够查找希望的，隐藏不想要的数据。</p><h2 id="Use-cases"><a href="#Use-cases" class="headerlink" title="Use-cases"></a>Use-cases</h2><ol><li>Search for products on online web store.</li><li>Collect log to analyze this data for statistics.</li><li>Use Elasticsearch aggreations functionality to perform complex business intelligence queries and use Kibana to build custom dashboards.</li></ol><h2 id="Basic-Concepts"><a href="#Basic-Concepts" class="headerlink" title="Basic Concepts"></a>Basic Concepts</h2><h3 id="Cluster"><a href="#Cluster" class="headerlink" title="Cluster"></a>Cluster</h3><p>A cluster is a collection of one or more nodes that together holds your entire data and provides federated indexing and search capabilities across all nodes.<br>一个集群是一个或多个节点的集合，这些节点一起组成你全部的数据，提供联合的索引，能够在全部节点搜索。</p><h3 id="Node"><a href="#Node" class="headerlink" title="Node"></a>Node</h3><p>A node is a sigle server that is part of your cluster, stores your data, and participates in the cluster’s indexing and search capabilities.<br>节点是你的集群中的一台服务器，存储你的数据，参与集群的索引与搜索。</p><h3 id="Index"><a href="#Index" class="headerlink" title="Index"></a>Index</h3><p>An index is a collection of documents that have somewhat similar characteristics. In a single cluster, you can define as many indexes as you want.<br>索引是某种程度有共同点的文档的集合。一个集群，你可以声明你想要的数量的索引。</p><h3 id="Type"><a href="#Type" class="headerlink" title="Type"></a>Type</h3><p>A type used to be a logical category/partition of your index to allow you to store different types of documents in the same index. It is no longer possible to create multiple types in an index, and the whole concept of types will be removed in a later version.<br>一种类型曾经是索引的逻辑目录/分区，允许你在同一个索引存储不同类型的文档。以后不再可能在一个索引中创建多个类型，后续的版本将会移除这整个概念。</p><h3 id="Document"><a href="#Document" class="headerlink" title="Document"></a>Document</h3><p>A document is a basic unit of information that can be indexed.<br>文档是索引的基础信息单元。</p><h3 id="Shards-amp-Replicas"><a href="#Shards-amp-Replicas" class="headerlink" title="Shards &amp; Replicas"></a>Shards &amp; Replicas</h3><p>Elasticsearch provides the ability to subdivide your index into multiple pieces called shards. Elasticsearch allows you to make one or more copies of your index’s shards into what are called replica shards, or replicas for short.<br>Elasticsearch可以把你的索引细分成多块，称为碎片。Elasticsearch允许你将索引分片的一个或多个副本制作成所谓的副本分片或简称副本。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Elasticsearch&quot;&gt;&lt;a href=&quot;#Elasticsearch&quot; class=&quot;headerlink&quot; title=&quot;Elasticsearch&quot;&gt;&lt;/a&gt;Elasticsearch&lt;/h1&gt;&lt;p&gt;Elasticsearch is a distrib
+      
+    
+    </summary>
+    
+    
+      <category term="java" scheme="http://yoursite.com/tags/java/"/>
+    
+      <category term="ELK" scheme="http://yoursite.com/tags/ELK/"/>
     
   </entry>
   
